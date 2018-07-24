@@ -1,18 +1,18 @@
 # Welcome to the wr wiki!
 
-The [README.md](http://ash-g777.viewdocs.io/wr/README) contains a basic starting guide for using 'wr', and as explained there, 'wr' itself has detailed help texts for advanced usage.
+The [README.md](http://ash-g777.viewdocs.io/wr/README) contains a basic starting guide for using `wr`, and as explained there, `wr` itself has detailed help texts for advanced usage.
 
 A complete from-scratch walkthrough of using wr in OpenStack to carry out a software workflow can be found [here](https://ash-g777.viewdocs.io/wr/wiki/opnstk).
 
 ## Gotchas
 
-Using 'wr' with OpenStack requires that you source your openstack rc file; see 'wr cloud deploy -h'.
+Using `wr` with OpenStack requires that you source your openstack rc file; see `wr cloud deploy -h`.
 
-'wr cloud deploy' has a default '--os', but it may not be suitable for your particular installation of OpenStack. Don't forget that you can change the default by setting cloudos in your 'wr' config file.
+`wr cloud deploy` has a default `--os`, but it may not be suitable for your particular installation of OpenStack. Don't forget that you can change the default by setting cloudos in your `wr` config file.
 
-If you run in to problems, the first thing to do is check your log file. By default this will be '~/.wr_production/log' (or log.openstack for a cloud deployment, available after tearing down).
+If you run in to problems, the first thing to do is check your log file. By default this will be `~/.wr_production/log` (or log.openstack for a cloud deployment, available after tearing down).
 
-###Sanger
+### Sanger
 
 If you're at the Sanger Institute and want to use 'wr' with OpenStack, you'll need to use a flavor regex of:
 '''
