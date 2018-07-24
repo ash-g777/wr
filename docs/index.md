@@ -3,6 +3,6 @@
 ### TO DO
 - check website functionality
 	www.facebook.com - done
-- [inlay links] (www.reddit.com)
+- [inlay links](www.reddit.com)
 - look at other layouts / formats
 - previewdocs?
