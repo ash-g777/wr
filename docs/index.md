@@ -1,8 +1,8 @@
-Testing out the viewdocs program (?)
+# Testing out the viewdocs program (?)
 
-TO DO
+### TO DO
 - check website functionality
-	www.facebook.com
-- inlay links
-- look at other layouts
-- previewdocs
+	www.facebook.com - done
+- [inlay links] (www.reddit.com)
+- look at other layouts / formats
+- previewdocs?
