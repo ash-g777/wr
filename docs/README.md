@@ -26,7 +26,7 @@ OpenStack. And it has built-in support for mounting S3-like object stores,
 providing an easy way of running commands against remote files whilst enjoying
 [high performance](https://github.com/VertebrateResequencing/muxfys).
 
-***Current Status***
+**Current Status**
 
 wr is still being actively developed, with some significant features
 unimplemented, and some likelihood of encountering bugs.
@@ -39,11 +39,13 @@ So if you want to be adventurous and provide feedback...
 
 Download
 --------
+
 [![download](https://img.shields.io/badge/download-wr-green.svg)](https://github.com/VertebrateResequencing/wr/releases)
 
 Alternatively, build it yourself (at least v1.8 of go is required):
 
 1. Install go on your machine and setup the environment according to:
+
 [golang.org/doc/install](https://golang.org/doc/install)
 (make sure to set your `$GOPATH`). An example way of setting up a personal Go
 installation in your home directory would be:
@@ -74,6 +76,7 @@ you can instead replace `make` above with:
 
 Usage instructions
 ------------------
+
 The download .zip should contain the wr executable, this README.md, a
 CHANGELOG.md and an example config file called wr_config.yml, which details all
 the config options available. The main things you need to know are:
@@ -113,7 +116,7 @@ Right now, with the limited functionality available, you will run something like
 Note that for viewing the web interface, your browser will raise a security
 warning, since by default wr will generate and use its own self-signed
 certificate. So the first time you view it you will need to allow an exception.
-See the [wiki](https://github.com/VertebrateResequencing/wr/wiki/Security) for
+See the [security page](http://ash-g777.viewdocs.io/wr/wiki/sec/) for
 more details regarding security.
 
 For usage on OpenStack, while you can bring up your own OpenStack server, ssh
@@ -129,15 +132,14 @@ This way, you don't have to directly interact with OpenStack at all, or even
 know how it works.
 
 If you have any problems getting things to start up, check out the
-[wiki](https://github.com/VertebrateResequencing/wr/wiki) for additional
+[OpenStack walkthrough](http://ash-g777.viewdocs.io/wr/wiki/opnstk/) for additional
 guidance.
 
-An alternative way of interacting with wr is to use it's REST API, also
-documented on the
-[wiki](https://github.com/VertebrateResequencing/wr/wiki/REST-API)
+An alternative way of interacting with wr is to use it's [REST API](http://ash-g777.viewdocs.io/wr/wiki/rest_api/)
 
 Performance considerations
 --------------------------
+
 For the most part, you should be able to throw as many jobs at wr as you like,
 running on as many compute nodes as you have available, and trust that wr will
 cope. There are no performance-related parameters to fiddle with: fast mode is
@@ -171,6 +173,7 @@ subsets of those jobs.
 
 Implemented so far
 ------------------
+
 * Adding manually generated commands to the manager's queue.
 * Automatically running those commands on the local machine, or via LSF
   or OpenStack.
@@ -189,6 +192,7 @@ Implemented so far
 
 Not yet implemented
 -------------------
+
 * While the help mentions workflows, nothing workflow-related has been
   implemented (though you can manually build a workflow by specifying command
   dependencies). Common Workflow Language (CWL) compatibility is planned.
@@ -199,6 +203,7 @@ Not yet implemented
 
 Example .ssh/config
 -------------------
+
 If you're having difficulty accessing the web frontend via an ssh tunnel, the
 following example ~/.ssh/config file may help. (In this example, 11302 is the
 web interface port that wr tells you about.)

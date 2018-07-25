@@ -137,16 +137,16 @@ grep -Ev "plugins|certificate" ~/.irods/irods_environment.json > ~/.irods/irods_
 
 One time only, we need to create an OpenStack-specific iRODS authentication file:
 
-1.  `wr cloud deploy --os "Ubuntu Trusty" --config_files '~/.irods/irods_environment.json.openstack:~/.irods/irods_environment.json' --script irods.script`
-2.  `ssh -i ~/.wr_production/cloud_resources.openstack.key ubuntu@[ip address from step 1]`
-3.  `iinit`
-4.  [enter your password and then as quickly as possible - time is important - carry out steps 5-7]
-5.  'exit'
-6.  'sftp -i ~/.wr_production/cloud_resources.openstack.key ubuntu@[ip address from step 1]'
-7.  `get .irods/.irodsA'
-8.  `exit`
-9.  `mv .irodsA ~/.irods/.irodsA.openstack`
-10.  `wr cloud teardown`
+1. `wr cloud deploy --os "Ubuntu Trusty" --config_files '~/.irods/irods_environment.json.openstack:~/.irods/irods_environment.json' --script irods.script`
+2. `ssh -i ~/.wr_production/cloud_resources.openstack.key ubuntu@[ip address from step 1]`
+3. `iinit`
+4. [enter your password and then as quickly as possible - time is important - carry out steps 5-7]
+5. 'exit'
+6. 'sftp -i ~/.wr_production/cloud_resources.openstack.key ubuntu@[ip address from step 1]'
+7. `get .irods/.irodsA'
+8. `exit`
+9. `mv .irodsA ~/.irods/.irodsA.openstack`
+10. `wr cloud teardown`
 
 From now on, when we wish to do iRODS -> S3 copy jobs, we just have to be sure to copy over these irods files to the servers we create, and install the iRODS client on them (currently that means having to use Ubuntu Trusty, since that's what they have built the client for), eg.:
 
@@ -156,6 +156,7 @@ From now on, when we wish to do iRODS -> S3 copy jobs, we just have to be sure t
 (Note that this doesn't work without caching turned on because random writes are not supported without caching.)# Testing out the viewdocs program (?)
 
 ## Further Information
+
 - [Multiple Cloud Deployments](http://ash-g777.viewdocs.io/wr/wiki/mul_cloud_deps)
 - [OpenStack Walkthrough](http://ash-g777.viewdocs.io/wr/wiki/opnstk)
 - [Rest API](http://ash-g777.viewdocs.io/wr/wiki/rest_api)
