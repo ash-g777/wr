@@ -287,12 +287,6 @@
                                             <dt>Peak RAM</dt>
                                             <dd data-bind="text: PeakRAM.mbIEC()"></dd>
                                         </dl>
-                                        <!-- ko if: PeakDisk > 0 -->
-                                            <dl>
-                                                <dt>Peak Disk</dt>
-                                                <dd data-bind="text: PeakDisk.mbIEC()"></dd>
-                                            </dl>
-                                        <!-- /ko -->
                                         <dl>
                                             <dt>Started</dt>
                                             <dd data-bind="text: Started.toDate()"></dd>
@@ -428,6 +422,9 @@
                                         <!-- ko if: Exited && Exitcode != 0 -->
                                             with same exit code (<span data-bind="text: Exitcode"></span>) and reason for failure
                                         <!-- /ko -->
+                                    <!-- /ko -->
+                                    <!-- ko if: State == "complete" -->
+                                        <button type="button" class="btn btn-danger pull-right" data-bind="click: $root.confirmRerun">Rerun</button>
                                     <!-- /ko -->
                                     <!-- ko if: State == "delayed" -->
                                         <button type="button" class="btn btn-danger pull-right" data-bind="click: $root.confirmRemoveDelay">Remove</button>
@@ -1046,6 +1043,11 @@
                     self.detailsState = '';
                     self.detailsOA = '';
                     self.actionModalVisible(false);
+                };
+                self.confirmRerun = function(job) {
+                    self.jobToActionDetails(job, 'rerun', 'rerun');
+                    self.actionModalHeader('Rerun Completed Commands');
+                    self.actionModalVisible(true);
                 };
                 self.confirmRetry = function(job) {
                     self.jobToActionDetails(job, 'retry', 'retry');
