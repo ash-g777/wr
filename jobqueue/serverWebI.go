@@ -84,7 +84,6 @@ type JStatus struct {
 	OtherRequests []string
 	Cores         int
 	PeakRAM       int
-	PeakDisk      int64 // MBs
 	Exited        bool
 	Exitcode      int
 	FailReason    string
@@ -291,7 +290,7 @@ func webInterfaceStatusWS(s *Server) http.HandlerFunc {
 					case "retry":
 						jobs := s.reqToJobs(req, []queue.ItemState{queue.ItemStateBury})
 						for _, job := range jobs {
-							err := s.q.Kick(job.Key())
+							err := s.q.Rerun(job.Key())
 							if err != nil {
 								continue
 							}
@@ -329,6 +328,14 @@ func webInterfaceStatusWS(s *Server) http.HandlerFunc {
 							delete(s.rpl.lookup[req.RepGroup], key)
 						}
 						s.rpl.Unlock()
+					case "rerun":
+						jobs := s.reqToJobs(req, []queue.ItemState{queue.ItemStateRun})
+						for _, job := range jobs {
+							_, err := s.q.Add(job.Key())
+							if err != nil {
+								continue
+							}
+						}
 					case "kill":
 						jobs := s.reqToJobs(req, []queue.ItemState{queue.ItemStateRun})
 						for _, job := range jobs {
